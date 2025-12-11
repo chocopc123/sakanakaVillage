@@ -69,15 +69,14 @@
             box-shadow: var(--card-shadow);
             border: 2px solid #eee;
         }
-        .machine-img-placeholder {
+        .machine-img {
             width: 100%;
             height: 200px;
-            background: #ddd;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #888;
-            font-weight: 700;
+            object-fit: contain; /* ロゴ全体が見えるようにcontainに変更 */
+            background: #fff; /* ロゴの背景を白に */
+            display: block;
+            padding: 20px; /* 余白を追加 */
+            border-bottom: 1px solid #eee;
         }
         .machine-info {
             padding: 1.5rem;
@@ -153,7 +152,7 @@
             <div class="concept-text">
                 <p>
                     トライアル競技は、険しい岩場、急斜面、人工的な障害物などが設置されたコース（セクション）を、いかに足を着かずにバイクに乗ったまま走破できるかを競う競技です。<br>
-                    モトクロスやロードレースとは異なり、スピードは競いません。ライダーのバランス感覚、アクセルワーク、ブレーキ操作、そして瞬時の判断力が試される、まさに「バイクを使った格闘技」「メンタルスポーツ」とも呼ばれています。
+                    モトクロスやロードレースとは異なり、スピードは競いません。ライダーのバランス感覚、アクセルワーク、ブレーキ操作、そして瞬時の判断力が試される、「メンタルスポーツ」とも呼ばれています。
                 </p>
                 <p>
                     コースには制限時間が設けられており、その時間内に複数のセクションをクリアしていきます。<br>
@@ -196,7 +195,7 @@
                     <tr>
                         <th>3点</th>
                         <td>3点</td>
-                        <td>3回以上足を着く。または2回足を着いて停止する。</td>
+                        <td>3回以上足を着く。4回以上足を着いても3点です。</td>
                     </tr>
                     <tr>
                         <th>5点</th>
@@ -214,45 +213,52 @@
 
             <div class="machine-grid">
                 <div class="machine-card">
-                    <div class="machine-img-placeholder">Montesa / Honda</div>
+                    <img src="images/brand-logo/honda.jpg" alt="Honda" class="machine-img">
                     <div class="machine-info">
-                        <h3>Montesa COTA 4RT</h3>
-                        <p>ホンダエンジン搭載の4ストロークマシン。信頼性とパワーのバランスが良く、世界チャンピオンも愛用。</p>
+                        <h3>Honda</h3>
+                        <p>HRC（ホンダ・レーシング）の技術が注ぎ込まれた4ストロークマシン。圧倒的な信頼性と世界選手権での輝かしい実績を誇ります。</p>
                     </div>
                 </div>
                 <div class="machine-card">
-                    <div class="machine-img-placeholder">TRS</div>
+                    <img src="images/brand-logo/trs.jpg" alt="TRS" class="machine-img">
                     <div class="machine-info">
-                        <h3>TRS ONE / RR-E</h3>
-                        <p>軽量で扱いやすい2ストロークマシン。多くのライダーに支持される人気モデル。</p>
+                        <h3>TRS</h3>
+                        <p>7度の世界王者ジョディ・タレスが立ち上げたブランド。アルミフレームを採用し、軽量かつ扱いやすい特性で人気急上昇中です。</p>
                     </div>
                 </div>
                 <div class="machine-card">
-                    <div class="machine-img-placeholder">GASGAS</div>
+                    <img src="images/brand-logo/gasgas.jpg" alt="GASGAS" class="machine-img">
                     <div class="machine-info">
-                        <h3>GASGAS TXT GP</h3>
-                        <p>KTMグループ傘下のスペインブランド。赤いフレームが特徴的な高性能マシン。</p>
+                        <h3>GASGAS</h3>
+                        <p>トライアル界を牽引するスペインのメジャーブランド。軽量でパワフルなエンジンと、鮮やかな赤いフレームがトレードマーク。</p>
                     </div>
                 </div>
                 <div class="machine-card">
-                    <div class="machine-img-placeholder">Beta</div>
+                    <img src="images/brand-logo/beta.jpg" alt="Beta" class="machine-img">
                     <div class="machine-info">
-                        <h3>Beta Evo</h3>
-                        <p>イタリアの老舗メーカー。独自のフレーム構造でしなやかな乗り味を実現。</p>
+                        <h3>Beta</h3>
+                        <p>イタリアの老舗オフロードメーカー。独自のアルミフレーム構造によるしなやかな乗り味が特徴で、多くのライダーに愛されています。</p>
                     </div>
                 </div>
                 <div class="machine-card">
-                    <div class="machine-img-placeholder">Sherco</div>
+                    <img src="images/brand-logo/sherco.jpg" alt="Sherco" class="machine-img">
                     <div class="machine-info">
-                        <h3>Sherco ST</h3>
-                        <p>フランスのメーカー。鮮やかなブルーのデザインと軽快なハンドリングが魅力。</p>
+                        <h3>Sherco</h3>
+                        <p>フランスの情熱が生んだスタイリッシュなブランド。ブルーのボディが特徴で、軽快なハンドリングと安定感を両立しています。</p>
                     </div>
                 </div>
                 <div class="machine-card">
-                    <div class="machine-img-placeholder">Vertigo</div>
+                    <img src="images/brand-logo/vertigo.jpg" alt="Vertigo" class="machine-img">
                     <div class="machine-info">
-                        <h3>Vertigo Nitro</h3>
-                        <p>インジェクション2ストロークエンジンを搭載した革新的なマシン。グリーンがトレードマーク。</p>
+                        <h3>Vertigo</h3>
+                        <p>電子制御インジェクション搭載の2ストロークエンジンなど、革新的な技術を積極的に採用。鮮やかなグリーンが目印です。</p>
+                    </div>
+                </div>
+                <div class="machine-card">
+                    <img src="images/brand-logo/scorpa.jpg" alt="Scorpa" class="machine-img">
+                    <div class="machine-info">
+                        <h3>Scorpa</h3>
+                        <p>フランス発のブランド。Shercoの姉妹ブランドとして、信頼性の高いエンジンと独自のフレーム設計を融合させています。</p>
                     </div>
                 </div>
             </div>
