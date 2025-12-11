@@ -1,0 +1,39 @@
+[
+  {
+    "label": "施設名",
+    "value": "坂中村トライアルランド (SAKANAKA VILLAGE)"
+  },
+  {
+    "label": "所在地",
+    "value": "〒381-0061 長野県長野市坂中３８１"
+  },
+  {
+    "label": "代表者",
+    "value": "中村 篤"
+  },
+  {
+    "label": "設立",
+    "value": "2023年"
+  },
+  {
+    "label": "管理者",
+    "value": [
+      {
+        "name": "中村 篤",
+        "machine": "TRS XTRAC RR-E 250"
+      },
+      {
+        "name": "宇都宮 健雄",
+        "machine": "TRS ONE RR-E 250 / Vertigo 250"
+      },
+      {
+        "name": "斎藤 輝夫",
+        "machine": "HONDA RTL260F"
+      },
+      {
+        "name": "原山 隆広",
+        "machine": "GASGAS TXT GP300 ＆ TXT RACING公道Ver"
+      }
+    ]
+  }
+]

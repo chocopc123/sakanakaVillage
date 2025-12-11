@@ -1,0 +1,40 @@
+[
+  {
+    "icon": "two_wheeler",
+    "title": "レンタルバイクあり",
+    "description": "GASGAS TXT-PRO 280をご用意<br>手ぶらで来て1日中楽しめます！",
+    "highlight": true,
+    "badge": "注目!"
+  },
+  {
+    "icon": "cottage",
+    "title": "快適な設備",
+    "description": "冷蔵庫＆電子レンジ完備<br>休憩所も充実しています",
+    "highlight": false
+  },
+  {
+    "icon": "local_drink",
+    "title": "ドリンク販売",
+    "description": "飲み物は100円で販売中<br>いつでも水分補給できます",
+    "highlight": false
+  },
+  {
+    "icon": "wc",
+    "title": "洋式トイレ完備",
+    "description": "清潔な洋式トイレがあるので<br>女性やお子様も安心です",
+    "highlight": false
+  },
+  {
+    "icon": "checkroom",
+    "title": "更衣室あり",
+    "description": "女性も安心の簡易更衣室を<br>完備しています",
+    "highlight": false
+  },
+  {
+    "icon": "campaign",
+    "title": "新規会員募集中",
+    "description": "只今キャンペーン中！<br><strong>入会金＆年会費無料！</strong>",
+    "highlight": false,
+    "campaign": true
+  }
+]
