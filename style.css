@@ -1022,6 +1022,35 @@ address {
         margin-bottom: 0.5rem;
     }
 
+    /* About Section Mobile Adjustments */
+    .about-text .section-header {
+        text-align: center; /* SP端末では中央揃え */
+    }
+
+    .about-text .section-header h2 {
+        font-size: 1.8rem; /* SP端末で見出しサイズ調整 */
+    }
+
+    .about-text p {
+        font-size: 1rem; /* SP端末でテキストサイズ調整 */
+        text-align: left; /* 本文は左揃えを維持 */
+    }
+
+    .about-text .btn-primary {
+        width: 100%;
+        max-width: 300px;
+        margin: 0 auto;
+        display: block;
+    }
+
+    .about-content {
+        gap: 2rem; /* SP端末でgapを縮小 */
+    }
+
+    .image-placeholder {
+        height: 300px; /* SP端末で画像プレースホルダーの高さ調整 */
+    }
+
     /* Mobile adjustments for floating button */
     .floating-btn {
         bottom: 20px;
