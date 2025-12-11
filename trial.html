@@ -47,10 +47,20 @@
             text-align: left;
         }
         .score-table th {
-            width: 100px;
+            width: 80px;
             background: #f9f9f9;
             font-weight: 700;
             text-align: center;
+        }
+        
+        @media (max-width: 425px) {
+            .score-table th {
+                width: 60px;
+                padding: 0.5rem; /* パディングも少し減らしてスペース確保 */
+            }
+            .score-table td {
+                padding: 0.5rem;
+            }
         }
         .score-clean {
             color: var(--primary-color);
@@ -179,27 +189,22 @@
                 <table class="score-table">
                     <tr>
                         <th>0点</th>
-                        <td class="score-clean">クリーン (CLEAN)</td>
-                        <td>一度も足を着かずにセクションを走破すること。最高の結果です！</td>
+                        <td><span class="score-clean">クリーン</span><br>一度も足を着かずにセクションを走破すること。最高の結果です！</td>
                     </tr>
                     <tr>
                         <th>1点</th>
-                        <td>1点</td>
                         <td>1回足を着く。</td>
                     </tr>
                     <tr>
                         <th>2点</th>
-                        <td>2点</td>
                         <td>2回足を着く。</td>
                     </tr>
                     <tr>
                         <th>3点</th>
-                        <td>3点</td>
                         <td>3回以上足を着く。4回以上足を着いても3点です。</td>
                     </tr>
                     <tr>
                         <th>5点</th>
-                        <td>5点</td>
                         <td>転倒、エンジン停止、コースアウト、後退、足着きながらの後退など。そのセクションは失敗となります。</td>
                     </tr>
                 </table>
