@@ -228,6 +228,7 @@ h1, h2, h3 {
     font-weight: 700;
     font-size: 0.9rem;
     box-shadow: 0 4px 10px rgba(247, 37, 133, 0.3);
+    white-space: nowrap; /* テキストの折り返しを防止 */
 }
 
 .nav-link-btn:hover {
@@ -940,6 +941,51 @@ address {
     50% { transform: translateY(-10px); }
 }
 
+/* Tablet / Small Desktop Adjustments */
+@media (max-width: 1024px) {
+    .nav-container {
+        padding: 0 15px;
+    }
+    .nav-brand {
+        gap: 10px;
+    }
+    .nav-brand h1 {
+        font-size: 1.2rem;
+    }
+    .brand-subtitle {
+        font-size: 0.6rem;
+    }
+    .nav-logo-img {
+        height: 45px;
+    }
+    .nav-menu {
+        gap: 0.5rem;
+    }
+    .nav-link {
+        padding: 1.5rem 0.5rem;
+        font-size: 0.85rem;
+    }
+    .nav-link-btn {
+        padding: 0.5rem 1rem;
+        font-size: 0.8rem;
+    }
+
+    /* About Section Button Adjustment for Tablet */
+    .about-cta {
+        flex-direction: column;
+        align-items: center;
+        gap: 1.5rem !important; /* 強制的に隙間を空ける */
+    }
+    .about-text .btn-primary, .about-text .btn-secondary {
+        width: 100%;
+        max-width: 300px;
+        margin: 0 0 1rem 0; /* 下マージンで確実に隙間を作る */
+    }
+    .about-text .btn-secondary {
+        margin-bottom: 0; /* 最後のボタンはマージンなし */
+    }
+}
+
 /* Responsive Design */
 @media (max-width: 768px) {
     .nav-menu {
@@ -974,6 +1020,12 @@ address {
         display: block;
         padding: 1rem 0;
         width: 100%;
+    }
+
+    .nav-link-btn {
+        margin: 1rem auto;
+        display: inline-block;
+        width: 80%;
     }
 
     .nav-menu.active {
@@ -1031,7 +1083,13 @@ address {
         margin-bottom: 0.5rem;
     }
 
-    /* About Section Mobile Adjustments */
+    .about-cta {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap; /* 画面幅が狭いときに折り返す */
+}
+
+/* About Section Mobile Adjustments */
     .about-text .section-header {
         text-align: center; /* SP端末では中央揃え */
     }
@@ -1045,11 +1103,17 @@ address {
         text-align: left; /* 本文は左揃えを維持 */
     }
 
-    .about-text .btn-primary {
+    .about-cta {
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+        gap: 2rem; /* ボタン間の間隔を広めに確保 */
+    }
+
+    .about-text .btn-primary, .about-text .btn-secondary {
         width: 100%;
         max-width: 300px;
-        margin: 0 auto;
-        display: block;
+        margin: 0; /* マージンをリセット */
     }
 
     .about-content {
