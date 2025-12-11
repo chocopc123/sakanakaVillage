@@ -44,6 +44,18 @@
             font-weight: 700;
             width: 200px;
         }
+
+        /* 沿革・施設概要テーブルのレスポンシブ対応 */
+        @media (max-width: 768px) {
+            .company-table th, .history-table th {
+                width: 80px;
+                white-space: nowrap; /* ヘッダーの折り返し防止 */
+                padding: 0.8rem;
+            }
+            .company-table td, .history-table td {
+                font-size: 0.95rem;
+            }
+        }
         .staff-list {
             list-style: none;
         }
@@ -176,7 +188,7 @@
                 <tbody>
                     <tr>
                         <th>2023年9月</th>
-                        <td>笹藪荒れ地を開拓。地名”坂中”とオーナー中村氏の名前から坂中村トライアルランドと命名</td>
+                        <td>笹藪荒れ地を開拓<br>地名”坂中”とオーナー中村氏の名前から坂中村トライアルランドと命名</td>
                     </tr>
                     <tr>
                         <th>2023年10月</th>
@@ -205,11 +217,11 @@
             <div class="access-details">
                 <div class="access-route">
                     <div class="route-title"><span class="material-icons-round">directions_car</span> 須坂長野東IC方面から</div>
-                    <p>上信越自動車道「須坂長野東IC」より車で約40分。</p>
+                    <p>上信越自動車道「須坂長野東IC」より車で約40分</p>
                 </div>
                 <div class="access-route">
                     <div class="route-title"><span class="material-icons-round">train</span> 長野駅から</div>
-                    <p>長野駅より車で約20分。</p>
+                    <p>長野駅より車で約20分</p>
                 </div>
                 <div class="access-buttons" style="margin-top: 2rem; text-align: center;">
                     <a href="https://maps.app.goo.gl/uQk7tUgRbHcdErCH6" target="_blank" class="btn-map">Google Mapsで見る</a>
