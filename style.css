@@ -567,6 +567,15 @@ h1, h2, h3 {
     position: relative;
 }
 
+.about-img {
+    width: 100%;
+    height: auto;
+    border-radius: var(--border-radius);
+    box-shadow: 15px 15px 0 var(--primary-color);
+    border: 4px solid var(--text-color);
+    display: block;
+}
+
 .image-placeholder {
     width: 100%;
     height: 400px;
