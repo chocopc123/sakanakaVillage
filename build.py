@@ -177,31 +177,31 @@ def main():
     topics = load_json('data/topics.json')
     if topics:
         topics_html = generate_topics_html(topics)
-        update_html('index.html', 'topics', topics_html)
+        update_html('src/index.html', 'topics', topics_html)
 
     # index.html - NEWS
     news = load_json('data/news.json')
     if news:
         news_html = generate_news_html(news)
-        update_html('index.html', 'news', news_html)
+        update_html('src/index.html', 'news', news_html)
 
     # events.html - EVENTS
     events = load_json('data/events.json')
     if events:
         events_html = generate_events_html(events)
-        update_html('events.html', 'events', events_html)
+        update_html('src/events.html', 'events', events_html)
 
     # about.html - COMPANY
     company = load_json('data/company.json')
     if company:
         company_html = generate_company_html(company)
-        update_html('about.html', 'company', company_html)
+        update_html('src/about.html', 'company', company_html)
 
     # about.html - HISTORY
     history = load_json('data/history.json')
     if history:
         history_html = generate_history_html(history)
-        update_html('about.html', 'history', history_html)
+        update_html('src/about.html', 'history', history_html)
 
     print('\nBuild completed!')
 

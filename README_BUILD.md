@@ -15,8 +15,22 @@ sakanakaVillage/
 │   └── history.json        # about.html - 沿革
 ├── build.py                # ビルドスクリプト（Python版）
 ├── build.bat               # ビルドスクリプト（Windows用）
-└── index.html, events.html, about.html  # 生成されるHTML
+├── README_BUILD.md         # このファイル
+└── src/                    # 公開ファイル（Webサーバーにアップロード）
+    ├── index.html
+    ├── events.html
+    ├── about.html
+    ├── style.css
+    ├── script.js
+    ├── images/
+    ├── events/            # 大会PDF
+    └── ...
 ```
+
+**ポイント:**
+- `data/` - コンテンツのソース（JSON形式）
+- `build.py`, `build.bat` - ビルドツール
+- `src/` - 生成された公開ファイル（このフォルダだけをWebサーバーにアップロード）
 
 ## 🔨 使い方
 
@@ -112,7 +126,8 @@ python3 build.py
 
 ## ⚠️ 注意事項
 
-- HTMLファイル内の `<!-- コンテンツはdata/○○.jsonから動的に読み込まれます -->` というコメントは**削除しないでください**（ビルドスクリプトの目印です）
+- `src/`内のHTMLファイルの `<!-- BEGIN: xxx -->` と `<!-- END: xxx -->` のコメントは**削除しないでください**（ビルドスクリプトの目印です）
+- `src/`内のHTMLファイルは直接編集しないでください（ビルド時に上書きされます）
 - JSONファイルは必ずUTF-8エンコーディングで保存してください
 - JSONの文法エラーがあるとビルドが失敗します（カンマ、括弧の位置に注意）
 - 改行を入れたい場合は `<br>` タグを使用してください
@@ -125,6 +140,29 @@ python3 build.py
 ✅ ページの初期表示が高速
 ✅ SNSシェア時にコンテンツが正しく表示
 ✅ JavaScriptがオフでも表示可能
+
+## 🚀 デプロイ（公開）方法
+
+ビルドが完了したら、**`src/`フォルダの中身だけ**をWebサーバーにアップロードしてください。
+
+```
+アップロードするもの: src/ の中身全て
+- index.html
+- events.html
+- about.html
+- images/
+- events/
+- style.css
+- script.js
+- など
+
+アップロードしないもの:
+- data/（ソースファイル）
+- build.py, build.bat（ビルドツール）
+- README_BUILD.md
+```
+
+**重要:** `data/`, `build.py`, `build.bat` はWebサーバーにアップロードする必要はありません。これらは開発時にのみ使用します。
 
 ## 🐛 トラブルシューティング
 
