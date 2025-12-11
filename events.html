@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>大会情報・ニュース - 坂中村トライアルランド</title>
+    <title>大会情報- 坂中村トライアルランド</title>
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -24,7 +24,7 @@
             color: #555;
             font-size: 0.9rem;
         }
-        .news-table {
+        .events-table {
             width: 100%;
             border-collapse: collapse;
             margin-top: 2rem;
@@ -33,25 +33,25 @@
             overflow: hidden;
             box-shadow: var(--card-shadow);
         }
-        .news-table th, .news-table td {
+        .events-table th, .events-table td {
             padding: 1.5rem;
             text-align: left;
             border-bottom: 1px solid #eee;
         }
-        .news-table td:nth-child(3) {
+        .events-table td:nth-child(3) {
             padding-left: calc(1.5rem - 12px);
         }
-        .news-table th {
+        .events-table th {
             background-color: #f9f9f9;
             font-weight: 700;
             width: 150px;
         }
-        .news-table th:first-child,
-        .news-table td:first-child {
+        .events-table th:first-child,
+        .events-table td:first-child {
             max-width: 110px;
             width: 110px;
         }
-        .news-table tr:last-child td {
+        .events-table tr:last-child td {
             border-bottom: none;
         }
         .pdf-link, .video-link {
@@ -94,22 +94,22 @@
             .page-title {
                 font-size: 2rem;
             }
-            
-            .news-table {
+
+            .events-table {
                 display: block;
                 background: transparent;
                 box-shadow: none;
                 border-radius: 0;
             }
-            .news-table thead {
+            .events-table thead {
                 display: none;
             }
-            .news-table tbody {
+            .events-table tbody {
                 display: flex;
                 flex-direction: column;
                 gap: 1.5rem;
             }
-            .news-table tr {
+            .events-table tr {
                 display: flex;
                 flex-direction: column;
                 background: white;
@@ -117,15 +117,15 @@
                 border-radius: var(--border-radius);
                 box-shadow: var(--card-shadow);
             }
-            .news-table td {
+            .events-table td {
                 display: block;
                 padding: 0;
                 border: none;
                 width: 100%;
             }
-            
+
             /* 開催日 */
-            .news-table td:nth-child(1) {
+            .events-table td:nth-child(1) {
                 width: auto;
                 max-width: none;
                 color: #888;
@@ -138,17 +138,17 @@
                 border-radius: 20px;
                 align-self: flex-start; /* 左寄せ */
             }
-            
+
             /* 大会名 */
-            .news-table td:nth-child(2) {
+            .events-table td:nth-child(2) {
                 font-size: 1.3rem;
                 font-weight: 800;
                 margin-bottom: 1.2rem;
                 line-height: 1.4;
             }
-            
+
             /* ボタンエリア */
-            .news-table td:nth-child(3) {
+            .events-table td:nth-child(3) {
                 display: flex;
                 flex-wrap: wrap;
                 gap: 10px;
@@ -156,7 +156,7 @@
                 border-top: 1px dashed #eee;
                 padding-top: 1rem;
             }
-            
+
             .pdf-link, .video-link {
                 flex: 1;
                 justify-content: center;
@@ -336,8 +336,8 @@
     <!-- Page Header -->
     <header class="page-header">
         <div class="container">
-            <h1 class="page-title">NEWS & EVENTS</h1>
-            <div class="breadcrumb">HOME > 大会情報・ニュース</div>
+            <h1 class="page-title">EVENTS</h1>
+            <div class="breadcrumb">HOME > 大会情報</div>
         </div>
     </header>
 
@@ -350,7 +350,7 @@
                 <p>開催された大会の結果や今後の予定</p>
             </div>
 
-            <table class="news-table">
+            <table class="events-table">
                 <thead>
                     <tr>
                         <th>開催日</th>
