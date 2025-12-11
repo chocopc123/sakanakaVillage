@@ -329,7 +329,7 @@
                 </button>
             </div>
             <div class="modal-body">
-                <iframe id="pdfFrame" src=""></iframe>
+                <iframe id="pdfFrame" src="" allow="fullscreen"></iframe>
             </div>
         </div>
     </div>
@@ -350,7 +350,11 @@
                 const pdfPath = this.getAttribute('data-pdf');
                 const title = this.getAttribute('data-title');
 
-                pdfFrame.src = pdfPath;
+                // ローカルのPDF.jsビューワーを使用（文字化けを防ぐ）
+                const viewerUrl = `pdfjs/web/viewer.html?file=${encodeURIComponent('../../' + pdfPath)}`;
+
+                pdfFrame.src = viewerUrl;
+                pdfFrame.title = title;
                 modalTitle.textContent = title;
                 modal.classList.add('active');
                 document.body.style.overflow = 'hidden'; // スクロールを無効化
