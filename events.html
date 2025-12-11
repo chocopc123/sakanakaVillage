@@ -38,16 +38,23 @@
             text-align: left;
             border-bottom: 1px solid #eee;
         }
+        .news-table td:nth-child(3) {
+            padding-left: calc(1.5rem - 12px);
+        }
         .news-table th {
             background-color: #f9f9f9;
             font-weight: 700;
             width: 150px;
         }
+        .news-table th:first-child,
+        .news-table td:first-child {
+            max-width: 110px;
+            width: 110px;
+        }
         .news-table tr:last-child td {
             border-bottom: none;
         }
-        .pdf-link {
-            color: var(--accent-color);
+        .pdf-link, .video-link {
             font-weight: 700;
             display: inline-flex;
             align-items: center;
@@ -56,12 +63,111 @@
             cursor: pointer;
             border-radius: 8px;
             transition: background-color 0.3s ease;
+            text-decoration: none;
+            vertical-align: middle;
+        }
+        .pdf-link {
+            color: var(--accent-color);
         }
         .pdf-link:hover {
             background-color: rgba(255, 99, 71, 0.1);
         }
         .pdf-link:hover .pdf-text {
             text-decoration: underline;
+        }
+        .video-link {
+            color: #FF0000;
+            margin-left: 10px;
+        }
+        .video-link:hover {
+            background-color: rgba(255, 0, 0, 0.1);
+        }
+        .video-link:hover .link-text {
+            text-decoration: underline;
+        }
+
+        /* スマートフォン向けレスポンシブスタイル */
+        @media (max-width: 768px) {
+            .page-header {
+                padding: 100px 0 40px;
+            }
+            .page-title {
+                font-size: 2rem;
+            }
+            
+            .news-table {
+                display: block;
+                background: transparent;
+                box-shadow: none;
+                border-radius: 0;
+            }
+            .news-table thead {
+                display: none;
+            }
+            .news-table tbody {
+                display: flex;
+                flex-direction: column;
+                gap: 1.5rem;
+            }
+            .news-table tr {
+                display: flex;
+                flex-direction: column;
+                background: white;
+                padding: 1.5rem;
+                border-radius: var(--border-radius);
+                box-shadow: var(--card-shadow);
+            }
+            .news-table td {
+                display: block;
+                padding: 0;
+                border: none;
+                width: 100%;
+            }
+            
+            /* 開催日 */
+            .news-table td:nth-child(1) {
+                width: auto;
+                max-width: none;
+                color: #888;
+                font-weight: 700;
+                font-size: 0.9rem;
+                margin-bottom: 0.5rem;
+                background: #f0f0f0;
+                display: inline-block;
+                padding: 0.2rem 0.8rem;
+                border-radius: 20px;
+                align-self: flex-start; /* 左寄せ */
+            }
+            
+            /* 大会名 */
+            .news-table td:nth-child(2) {
+                font-size: 1.3rem;
+                font-weight: 800;
+                margin-bottom: 1.2rem;
+                line-height: 1.4;
+            }
+            
+            /* ボタンエリア */
+            .news-table td:nth-child(3) {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 10px;
+                padding-left: 0 !important;
+                border-top: 1px dashed #eee;
+                padding-top: 1rem;
+            }
+            
+            .pdf-link, .video-link {
+                flex: 1;
+                justify-content: center;
+                background: #f9f9f9;
+                padding: 12px;
+                border-radius: 12px;
+                margin: 0; /* マージンリセット */
+            }
+            .video-link {
+                margin-left: 0; /* マージンリセット */
+            }
         }
 
         /* モーダル用スタイル */
@@ -123,9 +229,19 @@
             overflow: hidden;
             text-overflow: ellipsis;
         }
-        .modal-header h3::before {
+        .modal-header h3.is-pdf::before {
             content: 'PDF';
             background-color: var(--accent-color);
+            color: white;
+            font-size: 0.7rem;
+            padding: 3px 8px;
+            border-radius: 6px;
+            font-weight: 800;
+            letter-spacing: 0.05em;
+        }
+        .modal-header h3.is-video::before {
+            content: 'VIDEO';
+            background-color: #FF0000;
             color: white;
             font-size: 0.7rem;
             padding: 3px 8px;
@@ -157,7 +273,7 @@
         .modal-body {
             flex: 1;
             width: 100%;
-            background-color: #525659; /* PDF Viewer Background Color */
+            background-color: #000; /* Video/PDF Viewer Background Color */
             position: relative;
         }
         .modal-body iframe {
@@ -166,7 +282,7 @@
             border: none;
             display: block;
         }
-        /* Loading Spinner for PDF */
+        /* Loading Spinner */
         .modal-body::before {
             content: '';
             position: absolute;
@@ -246,27 +362,42 @@
                     <tr>
                         <td>2023/11/12</td>
                         <td>SAKANAKA VILLAGEオープン記念</td>
-                        <td><span class="pdf-link" data-pdf="events/taikai1.pdf" data-title="SAKANAKA VILLAGEオープン記念 リザルト"><span class="material-icons-round" style="font-size:1.2rem;">description</span> <span class="pdf-text">リザルト</span></span></td>
+                        <td>
+                            <span class="pdf-link" data-pdf="events/taikai1.pdf" data-title="SAKANAKA VILLAGEオープン記念 リザルト"><span class="material-icons-round" style="font-size:1.2rem;">description</span> <span class="pdf-text">Result</span></span>
+                            <span class="video-link" data-video-id="pD7AAttA6CY" data-title="SAKANAKA VILLAGEオープン記念 動画"><span class="material-icons-round">smart_display</span> <span class="link-text">YouTube</span></span>
+                        </td>
                     </tr>
                     <tr>
                         <td>2024/5/4</td>
                         <td>トイレ設置記念大会</td>
-                        <td><span class="pdf-link" data-pdf="events/taikai2.pdf" data-title="トイレ設置記念大会 リザルト"><span class="material-icons-round" style="font-size:1.2rem;">description</span> <span class="pdf-text">リザルト</span></span></td>
+                        <td>
+                            <span class="pdf-link" data-pdf="events/taikai2.pdf" data-title="トイレ設置記念大会 リザルト"><span class="material-icons-round" style="font-size:1.2rem;">description</span> <span class="pdf-text">Result</span></span>
+                            <span class="video-link" data-video-id="TGWab-_chvA" data-title="トイレ設置記念大会 動画"><span class="material-icons-round">smart_display</span> <span class="link-text">YouTube</span></span>
+                        </td>
                     </tr>
                     <tr>
                         <td>2024/10/27</td>
                         <td>トイレ設置記念大会パート2</td>
-                        <td><span class="pdf-link" data-pdf="events/taikai3.pdf" data-title="トイレ設置記念大会パート2 リザルト"><span class="material-icons-round" style="font-size:1.2rem;">description</span> <span class="pdf-text">リザルト</span></span></td>
+                        <td>
+                            <span class="pdf-link" data-pdf="events/taikai3.pdf" data-title="トイレ設置記念大会パート2 リザルト"><span class="material-icons-round" style="font-size:1.2rem;">description</span> <span class="pdf-text">Result</span></span>
+                            <span class="video-link" data-video-id="Ut3QcTI91bg" data-title="トイレ設置記念大会パート2 動画"><span class="material-icons-round">smart_display</span> <span class="link-text">YouTube</span></span>
+                        </td>
                     </tr>
                     <tr>
                         <td>2025/5/5</td>
                         <td>ワカサギ釣り赤字回収大会</td>
-                        <td><span class="pdf-link" data-pdf="events/taikai4.pdf" data-title="ワカサギ釣り赤字回収大会 リザルト"><span class="material-icons-round" style="font-size:1.2rem;">description</span> <span class="pdf-text">リザルト</span></span></td>
+                        <td>
+                            <span class="pdf-link" data-pdf="events/taikai4.pdf" data-title="ワカサギ釣り赤字回収大会 リザルト"><span class="material-icons-round" style="font-size:1.2rem;">description</span> <span class="pdf-text">Result</span></span>
+                            <span class="video-link" data-video-id="9Z9b9Vo97QE" data-title="ワカサギ釣り赤字回収大会 動画"><span class="material-icons-round">smart_display</span> <span class="link-text">YouTube</span></span>
+                        </td>
                     </tr>
                     <tr>
                         <td>2025/10/21</td>
                         <td>アサヒスーパードライ杯</td>
-                        <td><span class="pdf-link" data-pdf="events/taikai5.pdf" data-title="アサヒスーパードライ杯 リザルト"><span class="material-icons-round" style="font-size:1.2rem;">description</span> <span class="pdf-text">リザルト</span></span></td>
+                        <td>
+                            <span class="pdf-link" data-pdf="events/taikai5.pdf" data-title="アサヒスーパードライ杯 リザルト"><span class="material-icons-round" style="font-size:1.2rem;">description</span> <span class="pdf-text">Result</span></span>
+                            <span class="video-link" data-video-id="nWRZhTFsy18" data-title="アサヒスーパードライ杯 動画"><span class="material-icons-round">smart_display</span> <span class="link-text">YouTube</span></span>
+                        </td>
                     </tr>
                 </tbody>
             </table>
@@ -319,8 +450,8 @@
         </a>
     </div>
 
-    <!-- PDF Modal -->
-    <div id="pdfModal" class="modal">
+    <!-- Modal -->
+    <div id="modal" class="modal">
         <div class="modal-content">
             <div class="modal-header">
                 <h3 id="modalTitle">リザルト</h3>
@@ -329,60 +460,94 @@
                 </button>
             </div>
             <div class="modal-body">
-                <iframe id="pdfFrame" src="" allow="fullscreen"></iframe>
+                <iframe id="modalFrame" src="" allow="fullscreen; autoplay; encrypted-media; picture-in-picture"></iframe>
             </div>
         </div>
     </div>
 
     <script src="script.js"></script>
     <script>
-        // PDFモーダル機能
-        const modal = document.getElementById('pdfModal');
-        const pdfFrame = document.getElementById('pdfFrame');
+        // モーダル機能
+        const modal = document.getElementById('modal');
+        const modalFrame = document.getElementById('modalFrame');
         const modalTitle = document.getElementById('modalTitle');
         const closeModal = document.getElementById('closeModal');
-        const pdfLinks = document.querySelectorAll('.pdf-link');
 
-        // リザルトリンクをクリックしたときの処理
+        // リザルト(PDF)リンクの処理
+        const pdfLinks = document.querySelectorAll('.pdf-link');
         pdfLinks.forEach(link => {
             link.addEventListener('click', function(e) {
                 e.preventDefault();
                 const pdfPath = this.getAttribute('data-pdf');
                 const title = this.getAttribute('data-title');
 
-                // ローカルのPDF.jsビューワーを使用（文字化けを防ぐ）
+                // ローカルのPDF.jsビューワーを使用
                 const viewerUrl = `pdfjs/web/viewer.html?file=${encodeURIComponent('../../' + pdfPath)}`;
 
-                pdfFrame.src = viewerUrl;
-                pdfFrame.title = title;
+                modalFrame.src = viewerUrl;
                 modalTitle.textContent = title;
+
+                // バッジの切り替え
+                modalTitle.classList.remove('is-video');
+                modalTitle.classList.add('is-pdf');
+
                 modal.classList.add('active');
-                document.body.style.overflow = 'hidden'; // スクロールを無効化
+                document.body.style.overflow = 'hidden';
             });
         });
 
-        // 閉じるボタンをクリックしたときの処理
-        closeModal.addEventListener('click', function() {
-            modal.classList.remove('active');
-            pdfFrame.src = '';
-            document.body.style.overflow = ''; // スクロールを有効化
+        // 動画リンクの処理
+        const videoLinks = document.querySelectorAll('.video-link');
+        videoLinks.forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                const videoId = this.getAttribute('data-video-id');
+                const title = this.getAttribute('data-title');
+
+                // YouTube Embed URL with volume parameter (enablejsapi for volume control)
+                const embedUrl = `https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0&enablejsapi=1`;
+
+                modalFrame.src = embedUrl;
+                modalTitle.textContent = title;
+
+                // バッジの切り替え
+                modalTitle.classList.remove('is-pdf');
+                modalTitle.classList.add('is-video');
+
+                modal.classList.add('active');
+                document.body.style.overflow = 'hidden';
+
+                // YouTube IFrame APIでボリューム設定
+                modalFrame.onload = function() {
+                    setTimeout(() => {
+                        try {
+                            modalFrame.contentWindow.postMessage('{"event":"command","func":"setVolume","args":[20]}', '*');
+                        } catch(e) {
+                            console.log('Volume control not available');
+                        }
+                    }, 1000);
+                };
+            });
         });
 
-        // モーダル背景をクリックしたときの処理
+        // 閉じる処理 (共通)
+        function closeModalFunc() {
+            modal.classList.remove('active');
+            modalFrame.src = ''; // 再生停止
+            document.body.style.overflow = '';
+        }
+
+        closeModal.addEventListener('click', closeModalFunc);
+
         modal.addEventListener('click', function(e) {
             if (e.target === modal) {
-                modal.classList.remove('active');
-                pdfFrame.src = '';
-                document.body.style.overflow = '';
+                closeModalFunc();
             }
         });
 
-        // ESCキーでモーダルを閉じる
         document.addEventListener('keydown', function(e) {
             if (e.key === 'Escape' && modal.classList.contains('active')) {
-                modal.classList.remove('active');
-                pdfFrame.src = '';
-                document.body.style.overflow = '';
+                closeModalFunc();
             }
         });
     </script>
