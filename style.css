@@ -431,10 +431,6 @@ h1, h2, h3 {
     overflow: hidden;
 }
 
-.topic-card:hover {
-    transform: translateY(-10px);
-    border-color: var(--primary-color);
-}
 
 .card-badge {
     position: absolute;
@@ -611,9 +607,6 @@ h1, h2, h3 {
     border-radius: 10px;
 }
 
-.news-item:hover {
-    background: #f9f9f9;
-}
 
 .news-date {
     background: var(--secondary-color);
