@@ -30,8 +30,6 @@ def generate_topics_html(topics):
     html_parts = []
     for topic in topics:
         classes = ['topic-card']
-        if topic.get('highlight'):
-            classes.append('highlight')
         if topic.get('campaign'):
             classes.append('campaign')
 
