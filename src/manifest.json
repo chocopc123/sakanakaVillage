@@ -1,0 +1,26 @@
+{
+    "name": "Sakanaka Village",
+    "short_name": "坂中村トライアル",
+    "description": "長野県長野市坂中にある会員制トライアルパーク",
+    "start_url": "/sakanaka-village/",
+    "display": "standalone",
+    "background_color": "#ffffff",
+    "theme_color": "#2c5f2d",
+    "orientation": "portrait-primary",
+    "icons": [
+        {
+            "src": "images/apple-touch-icon.png",
+            "sizes": "180x180",
+            "type": "image/png",
+            "purpose": "any maskable"
+        },
+        {
+            "src": "images/sakanaka-logo.png",
+            "sizes": "512x512",
+            "type": "image/png",
+            "purpose": "any"
+        }
+    ],
+    "categories": ["sports", "recreation"],
+    "lang": "ja"
+}
