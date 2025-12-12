@@ -7,23 +7,23 @@ HTMLファイルを直接編集せず、JSONファイルを編集してビルド
 
 ```
 sakanakaVillage/
-├── data/                    # コンテンツデータ（ここを編集します）
+├── data/                   # コンテンツデータ（この中のjsonファイルを編集する）
 │   ├── topics.json         # index.html - TOPICS
 │   ├── news.json           # index.html - NEWS
 │   ├── events.json         # events.html - 大会情報
 │   ├── company.json        # about.html - 施設概要
 │   └── history.json        # about.html - 沿革
-├── build.py                # ビルドスクリプト（Python版）
-├── build.bat               # ビルドスクリプト（Windows用）
-├── README_BUILD.md         # このファイル
-└── src/                    # 公開ファイル（Webサーバーにアップロード）
+├── build.py
+├── build.bat               # ワンクリックビルドツール
+├── README_BUILD.md
+└── src/                    # 公開ファイル（この中のファイルをWebサーバーにアップロードする）
     ├── index.html
     ├── events.html
     ├── about.html
     ├── style.css
     ├── script.js
     ├── images/
-    ├── events/            # 大会PDF
+    ├── events/            # 大会PDFはここに格納
     └── ...
 ```
 
@@ -34,11 +34,11 @@ sakanakaVillage/
 
 ## 🔨 使い方
 
-### Windows の場合（推奨）
+### Windowsの場合
 
 1. `data/` フォルダ内の該当するJSONファイルを編集
 2. **`build.bat` をダブルクリック**で実行
-3. 完了！HTMLが自動的に更新されます
+3. `src/` フォルダの中をサーバーにアップロードする
 
 ### コマンドラインから実行する場合
 
@@ -59,11 +59,11 @@ python3 build.py
 ```json
 [
   {
-    "icon": "two_wheeler",           // Material Iconsのアイコン名
+    "icon": "two_wheeler",           // https://fonts.google.com/icons にあるアイコンの名前をセット
     "title": "レンタルバイクあり",
     "description": "GASGAS TXT-PRO 280をご用意<br>手ぶらで来て1日中楽しめます！",
-    "highlight": true,                // 注目カードにする場合
-    "badge": "注目!"                  // バッジテキスト（オプション）
+    "badge": "注目!"                  // バッジテキスト（オプション: カードの右上にリボンで文字を入れる）
+    "campaign": "false"              // キャンペーンフラグ（オプション: trueにするときらきら光る）
   }
 ]
 ```
@@ -87,7 +87,7 @@ python3 build.py
   {
     "date": "2023/11/12",
     "name": "SAKANAKA VILLAGEオープン記念",
-    "pdf": "events/taikai1.pdf",
+    "pdf": "events/taikai1.pdf",      // リザルトPDPの置き場所
     "videoId": "pD7AAttA6CY"          // YouTubeのビデオID
   }
 ]
@@ -132,15 +132,6 @@ python3 build.py
 - JSONの文法エラーがあるとビルドが失敗します（カンマ、括弧の位置に注意）
 - 改行を入れたい場合は `<br>` タグを使用してください
 
-## 💡 SEO対策について
-
-このビルド方式により、以下のSEO上の利点があります：
-
-✅ 検索エンジンがコンテンツを正しくインデックス
-✅ ページの初期表示が高速
-✅ SNSシェア時にコンテンツが正しく表示
-✅ JavaScriptがオフでも表示可能
-
 ## 🚀 デプロイ（公開）方法
 
 ビルドが完了したら、**`src/`フォルダの中身だけ**をWebサーバーにアップロードしてください。
@@ -171,6 +162,7 @@ python3 build.py
 1. JSONファイルの文法が正しいか確認（[JSONLint](https://jsonlint.com/)で検証可能）
 2. Python 3がインストールされているか確認（`python --version` で確認）
 3. ファイルがUTF-8で保存されているか確認
+4. 困ったらgeminiに聞いてみて
 
 ### HTMLが更新されない場合
 
