@@ -1,0 +1,7 @@
+# robots.txt for SAKANAKA VILLAGE
+User-agent: *
+Allow: /
+Disallow: /pdfjs/
+
+# Sitemap
+Sitemap: https://docodocodoco.com/sakanaka-village/sitemap.xml
