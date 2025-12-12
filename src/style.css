@@ -315,6 +315,7 @@ h1, h2, h3 {
     height: 100vh; /* Fallback */
     height: 100svh; /* Stable Viewport Height for mobile browsers */
     min-height: 600px;
+    max-height: 900px;
     display: flex;
     align-items: center;
     justify-content: center;
