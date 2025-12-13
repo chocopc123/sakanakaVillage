@@ -1,42 +1,42 @@
 {
-    "name": "Sakanaka Village",
-    "short_name": "坂中村トライアル",
-    "description": "長野県長野市坂中にある会員制トライアルパーク",
-    "id": "/sakanaka-village/",
-    "start_url": "./",
-    "scope": "./",
-    "display": "standalone",
-    "background_color": "#ffffff",
-    "theme_color": "#2c5f2d",
-    "orientation": "portrait-primary",
-    "icons": [
-        {
-            "src": "images/apple-touch-icon.png",
-            "sizes": "180x180",
-            "type": "image/png",
-            "purpose": "any"
-        },
-        {
-            "src": "images/sakanaka-logo-192px.png",
-            "sizes": "192x192",
-            "type": "image/png",
-            "purpose": "any"
-        },
-        {
-            "src": "images/sakanaka-logo-512px.png",
-            "sizes": "512x512",
-            "type": "image/png",
-            "purpose": "any"
-        }
-    ],
-    "screenshots": [
-        {
-            "src": "images/sakanaka-ogp.png",
-            "sizes": "1200x630",
-            "type": "image/png",
-            "form_factor": "wide"
-        }
-    ],
-    "categories": ["sports", "recreation"],
-    "lang": "ja"
+  "name": "Sakanaka Village",
+  "short_name": "坂中村トライアル",
+  "description": "長野県長野市坂中にある会員制トライアルパーク",
+  "id": "/sakanaka-village/",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#2c5f2d",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "images/apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "images/sakanaka-logo-192px.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "images/sakanaka-logo-512px.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "images/sakanaka-ogp.png",
+      "sizes": "1200x630",
+      "type": "image/png",
+      "form_factor": "wide"
+    }
+  ],
+  "categories": ["sports", "recreation"],
+  "lang": "ja"
 }

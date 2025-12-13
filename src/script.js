@@ -179,17 +179,17 @@ const toggleMute = (e) => {
     iconSound.style.display = "none";
   }
 
-    // Attempt to control the player
-    if (player) {
-      if (isCurrentlyMutedIconVisible) {
-        if (typeof player.unMute === "function") {
-          player.unMute();
-          player.setVolume(20);
-        }
-      } else {
-        if (typeof player.mute === "function") player.mute();
+  // Attempt to control the player
+  if (player) {
+    if (isCurrentlyMutedIconVisible) {
+      if (typeof player.unMute === "function") {
+        player.unMute();
+        player.setVolume(20);
       }
+    } else {
+      if (typeof player.mute === "function") player.mute();
     }
+  }
 };
 
 muteBtn.addEventListener("click", toggleMute);
@@ -214,35 +214,35 @@ function onPlayerStateChange(event) {
         iterations++;
         // Stop after 3 iterations (3 seconds since animation is 1s duration)
         if (iterations >= 3) {
-            muteBtn.removeEventListener('animationiteration', handleIteration);
+          muteBtn.removeEventListener("animationiteration", handleIteration);
 
-            // アニメーションを停止
-            muteBtn.style.animation = 'none';
+          // アニメーションを停止
+          muteBtn.style.animation = "none";
 
-            // 少し待ってからトランジションでフェードアウト
+          // 少し待ってからトランジションでフェードアウト
+          setTimeout(() => {
+            muteBtn.style.transition = "all 1s ease-out";
+            // 元の状態に明示的に戻す
+            muteBtn.style.transform = "scale(1)";
+            muteBtn.style.boxShadow = "0 0 0 rgba(0,0,0,0)";
+            muteBtn.style.borderColor = "rgba(255, 255, 255, 0.3)";
+            muteBtn.style.background = "rgba(0, 0, 0, 0.5)";
+
+            // トランジション完了後にクリーンアップ
             setTimeout(() => {
-                muteBtn.style.transition = 'all 1s ease-out';
-                // 元の状態に明示的に戻す
-                muteBtn.style.transform = 'scale(1)';
-                muteBtn.style.boxShadow = '0 0 0 rgba(0,0,0,0)';
-                muteBtn.style.borderColor = 'rgba(255, 255, 255, 0.3)';
-                muteBtn.style.background = 'rgba(0, 0, 0, 0.5)';
-
-                // トランジション完了後にクリーンアップ
-                setTimeout(() => {
-                    muteBtn.classList.remove('attention');
-                    muteBtn.style.animation = '';
-                    muteBtn.style.transition = '';
-                    muteBtn.style.transform = '';
-                    muteBtn.style.boxShadow = '';
-                    muteBtn.style.borderColor = '';
-                    muteBtn.style.background = '';
-                }, 1000);
-            }, 50);
+              muteBtn.classList.remove("attention");
+              muteBtn.style.animation = "";
+              muteBtn.style.transition = "";
+              muteBtn.style.transform = "";
+              muteBtn.style.boxShadow = "";
+              muteBtn.style.borderColor = "";
+              muteBtn.style.background = "";
+            }, 1000);
+          }, 50);
         }
       };
 
-      muteBtn.addEventListener('animationiteration', handleIteration);
+      muteBtn.addEventListener("animationiteration", handleIteration);
     }
   }
 }
