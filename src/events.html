@@ -725,9 +725,11 @@
           const pdfPath = this.getAttribute("data-pdf");
           const title = this.getAttribute("data-title");
 
-          // ローカルのPDF.jsビューワーを使用
-          const viewerUrl = `pdfjs/web/viewer.html?file=${encodeURIComponent(
-            "../../" + pdfPath
+          // CDNのPDF.jsビューワーを使用
+          const viewerUrl = `https://mozilla.github.io/pdf.js/web/viewer.html?file=${encodeURIComponent(
+            window.location.origin +
+              window.location.pathname.replace("events.html", "") +
+              pdfPath
           )}`;
 
           modalFrame.src = viewerUrl;
