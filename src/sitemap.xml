@@ -6,40 +6,40 @@
 
     <!-- ホームページ -->
     <url>
-        <loc>https://docodocodoco.com/sakanaka_village/index.html</loc>
-        <lastmod>2025-12-11</lastmod>
+        <loc>https://sakanaka-village.docodocodoco.com/index.html</loc>
+        <lastmod>2025-12-16</lastmod>
         <changefreq>weekly</changefreq>
         <priority>1.0</priority>
     </url>
 
     <!-- トライアルとは -->
     <url>
-        <loc>https://docodocodoco.com/sakanaka_village/trial.html</loc>
-        <lastmod>2025-12-11</lastmod>
+        <loc>https://sakanaka-village.docodocodoco.com/trial.html</loc>
+        <lastmod>2025-12-16</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
 
     <!-- 入門講座 -->
     <url>
-        <loc>https://docodocodoco.com/sakanaka_village/lesson.html</loc>
-        <lastmod>2025-12-11</lastmod>
+        <loc>https://sakanaka-village.docodocodoco.com/lesson.html</loc>
+        <lastmod>2025-12-16</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
 
     <!-- 大会情報 -->
     <url>
-        <loc>https://docodocodoco.com/sakanaka_village/events.html</loc>
-        <lastmod>2025-12-11</lastmod>
+        <loc>https://sakanaka-village.docodocodoco.com/events.html</loc>
+        <lastmod>2025-12-16</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.7</priority>
     </url>
 
     <!-- 施設概要 -->
     <url>
-        <loc>https://docodocodoco.com/sakanaka_village/about.html</loc>
-        <lastmod>2025-12-11</lastmod>
+        <loc>https://sakanaka-village.docodocodoco.com/about.html</loc>
+        <lastmod>2025-12-16</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.7</priority>
     </url>

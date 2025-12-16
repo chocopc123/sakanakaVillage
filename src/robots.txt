@@ -4,4 +4,4 @@ Allow: /
 Disallow: /pdfjs/
 
 # Sitemap
-Sitemap: https://docodocodoco.com/sakanaka_village/sitemap.xml
+Sitemap: https://sakanaka-village.docodocodoco.com/sitemap.xml
