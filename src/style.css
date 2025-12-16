@@ -1174,3 +1174,37 @@ address {
     right: -2px;
   }
 }
+
+/* スマホ横持ち（ランドスケープ）時のナビゲーション最適化 */
+@media (max-height: 500px) and (orientation: landscape) {
+  .nav-container {
+    height: 50px; /* 80px -> 50px */
+  }
+
+  .nav-logo-img {
+    height: 35px; /* 60px -> 35px */
+  }
+
+  .nav-brand h1 {
+    font-size: 1.1rem;
+  }
+
+  .brand-subtitle {
+    display: none; /* コンテンツ領域確保のためサブタイトルは非表示 */
+  }
+
+  .nav-link {
+    padding: 0.5rem 0.8rem;
+    font-size: 0.85rem;
+  }
+
+  /* ハンバーガーメニューの位置調整 */
+  .hamburger {
+    transform: scale(0.8);
+  }
+
+  .nav-menu {
+    top: 50px; /* ナビバーの高さに合わせる */
+    padding: 1rem 0;
+  }
+}
