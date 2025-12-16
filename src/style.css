@@ -337,7 +337,12 @@ h3 {
   position: relative;
   overflow: hidden;
   color: var(--white);
-  padding-top: 80px; /* Space for navbar */
+  padding-top: clamp(100px, 20vh, 140px); /* Increased safe zone for navbar */
+  padding-bottom: clamp(
+    100px,
+    20vh,
+    140px
+  ); /* Increased safe zone for topics */
 }
 
 /* Video Background */
@@ -382,28 +387,36 @@ h3 {
 }
 
 .hero-subtitle-top {
-  font-size: 1.2rem;
+  font-size: clamp(
+    0.9rem,
+    calc(1.5vh + 0.5vw),
+    1.2rem
+  ); /* Responsive to both height and width */
   font-weight: 700;
   background: var(--primary-color);
   color: var(--text-color);
   display: inline-block;
   padding: 0.3rem 1rem;
   border-radius: 5px;
-  margin-bottom: 1rem;
+  margin-bottom: clamp(0.3rem, 1.5vh, 1rem); /* Reduced margin */
   transform: rotate(-2deg);
   box-shadow: 3px 3px 0 rgba(0, 0, 0, 0.2);
 }
 
 .hero-title {
-  font-size: 4rem;
-  margin-bottom: 1.5rem;
+  font-size: clamp(
+    1.8rem,
+    calc(4vh + 2vw),
+    4rem
+  ); /* Responsive to both height and width */
+  margin-bottom: clamp(0.3rem, 2vh, 1.5rem); /* Tighter margins */
   text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
   line-height: 1.2;
 }
 
 .hero-description {
-  font-size: 1.2rem;
-  margin-bottom: 2.5rem;
+  font-size: clamp(0.8rem, 2vh, 1.2rem); /* Scalable description */
+  margin-bottom: clamp(0.8rem, 3vh, 2.5rem); /* Reduced margin */
   text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.5);
 }
 
