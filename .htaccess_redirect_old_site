@@ -1,35 +1,24 @@
-# 旧サイト（https://docodocodoco.com/sakanaka_village/）に配置する .htaccess ファイル
-# このファイルを旧サイトのディレクトリにコピーして .htaccess として配置してください
+# sakanaka_villageディレクトリ内に配置する .htaccess ファイル
+# 配置場所: docodocodoco.com/sakanaka_village/.htaccess
 
 <IfModule mod_rewrite.c>
     RewriteEngine On
 
+    # ベースURL（このディレクトリ）を設定
+    RewriteBase /sakanaka_village/
+
     # 301リダイレクト: 旧URLから新URLへ
-    # index.html
-    RewriteCond %{HTTP_HOST} ^docodocodoco\.com$ [NC]
-    RewriteRule ^sakanaka_village/index\.html$ https://sakanaka-village.docodocodoco.com/index.html [R=301,L]
 
-    # trial.html
-    RewriteCond %{HTTP_HOST} ^docodocodoco\.com$ [NC]
-    RewriteRule ^sakanaka_village/trial\.html$ https://sakanaka-village.docodocodoco.com/trial.html [R=301,L]
+    # 各HTMLファイル
+    RewriteRule ^index\.html$ https://sakanaka-village.docodocodoco.com/index.html [R=301,L]
+    RewriteRule ^trial\.html$ https://sakanaka-village.docodocodoco.com/trial.html [R=301,L]
+    RewriteRule ^lesson\.html$ https://sakanaka-village.docodocodoco.com/lesson.html [R=301,L]
+    RewriteRule ^events\.html$ https://sakanaka-village.docodocodoco.com/events.html [R=301,L]
+    RewriteRule ^about\.html$ https://sakanaka-village.docodocodoco.com/about.html [R=301,L]
 
-    # lesson.html
-    RewriteCond %{HTTP_HOST} ^docodocodoco\.com$ [NC]
-    RewriteRule ^sakanaka_village/lesson\.html$ https://sakanaka-village.docodocodoco.com/lesson.html [R=301,L]
-
-    # events.html
-    RewriteCond %{HTTP_HOST} ^docodocodoco\.com$ [NC]
-    RewriteRule ^sakanaka_village/events\.html$ https://sakanaka-village.docodocodoco.com/events.html [R=301,L]
-
-    # about.html
-    RewriteCond %{HTTP_HOST} ^docodocodoco\.com$ [NC]
-    RewriteRule ^sakanaka_village/about\.html$ https://sakanaka-village.docodocodoco.com/about.html [R=301,L]
-
-    # ディレクトリトップへのアクセス
-    RewriteCond %{HTTP_HOST} ^docodocodoco\.com$ [NC]
-    RewriteRule ^sakanaka_village/?$ https://sakanaka-village.docodocodoco.com/index.html [R=301,L]
+    # ディレクトリトップへのアクセス（末尾スラッシュあり/なし）
+    RewriteRule ^$ https://sakanaka-village.docodocodoco.com/index.html [R=301,L]
 
     # その他のファイル（画像、CSS、JSなど）
-    RewriteCond %{HTTP_HOST} ^docodocodoco\.com$ [NC]
-    RewriteRule ^sakanaka_village/(.*)$ https://sakanaka-village.docodocodoco.com/$1 [R=301,L]
+    RewriteRule ^(.+)$ https://sakanaka-village.docodocodoco.com/$1 [R=301,L]
 </IfModule>
