@@ -122,6 +122,7 @@ function createPlayer() {
       // 'playlist': 'EplwM1uWBLA', // Removed to prevent native playlist looping
       mute: 1,
       start: 35,
+      playsinline: 1,
     },
     events: {
       onReady: onPlayerReady,
@@ -162,38 +163,44 @@ const iconSound = document.querySelector(".icon-sound");
 
 // Handle both click and touch events for better mobile support
 const toggleMute = (e) => {
-  // Prevent default touch behavior if it's a touchstart event
-  if (e.type === "touchstart") {
-    e.preventDefault();
-  }
-
   // Toggle based on UI state as a fallback if player status is unreliable
   const isCurrentlyMutedIconVisible = iconMute.style.display !== "none";
 
-  // Update UI immediately for better responsiveness
-  if (isCurrentlyMutedIconVisible) {
-    iconMute.style.display = "none";
-    iconSound.style.display = "block";
-  } else {
-    iconMute.style.display = "block";
-    iconSound.style.display = "none";
-  }
-
   // Attempt to control the player
   if (player) {
+    // 常に再生を最優先で要求する（クリックイベント内での権限確保）
+    if (typeof player.playVideo === "function") {
+      player.playVideo();
+    }
+
     if (isCurrentlyMutedIconVisible) {
+      // ユーザーは「音を出したい」と思っている
       if (typeof player.unMute === "function") {
         player.unMute();
         player.setVolume(20);
       }
     } else {
-      if (typeof player.mute === "function") player.mute();
+      // ユーザーは「消音したい」と思っている
+      if (typeof player.mute === "function") {
+        player.mute();
+      }
     }
+  }
+
+  // Update UI immediately for better responsiveness
+  if (isCurrentlyMutedIconVisible) {
+    iconMute.style.display = "none";
+    iconSound.style.display = "block";
+    muteBtn.classList.add("active"); // Optional: add active state style
+  } else {
+    iconMute.style.display = "block";
+    iconSound.style.display = "none";
+    muteBtn.classList.remove("active");
   }
 };
 
-muteBtn.addEventListener("click", toggleMute);
-muteBtn.addEventListener("touchstart", toggleMute, { passive: false });
+// Use click only for better compatibility
+muteBtn.onclick = toggleMute;
 
 function onPlayerStateChange(event) {
   if (event.data === YT.PlayerState.ENDED) {
@@ -245,16 +252,6 @@ function onPlayerStateChange(event) {
       muteBtn.addEventListener("animationiteration", handleIteration);
     }
   }
-}
-
-// Fallback for mobile devices (often block autoplay videos)
-if (
-  /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
-    navigator.userAgent
-  )
-) {
-  // Mobile logic: ensure video plays muted
-  // We don't hide it anymore as we want it to play if possible
 }
 
 // Page visibility API handler
