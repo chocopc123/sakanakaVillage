@@ -137,7 +137,71 @@ function onPlayerReady(event) {
   isPlayerReady = true;
   player = event.target; // Ensure we have the ready player instance
   event.target.mute();
+
+  // Initial resize
+  resizeVideoBackground();
+
   event.target.playVideo();
+}
+
+function resizeVideoBackground() {
+  // Use the #video-background element for dimensions to account for top offset
+  const container = document.getElementById("video-background");
+
+  // Try to get iframe from player instance first, then fallback to ID
+  let iframe = null;
+  if (player && typeof player.getIframe === "function") {
+    iframe = player.getIframe();
+  } else {
+    iframe = document.getElementById("youtube-background-player");
+  }
+
+  if (!container || !iframe) return;
+
+  // Basic check to ensure we are targeting an element that can be styled
+  if (!iframe.style) return;
+
+  const containerWidth = container.clientWidth;
+  const containerHeight = container.clientHeight;
+
+  // 16:9 Aspect Ratio
+  const videoRatio = 16 / 9;
+  const containerRatio = containerWidth / containerHeight;
+
+  let finalWidth, finalHeight;
+
+  if (containerRatio > videoRatio) {
+    // Container is wider than video ratio -> fit to width
+    finalWidth = containerWidth;
+    finalHeight = containerWidth / videoRatio;
+  } else {
+    // Container is taller than video ratio -> fit to height
+    finalHeight = containerHeight;
+    finalWidth = containerHeight * videoRatio;
+  }
+
+  // Apply calculated dimensions (overriding CSS)
+  iframe.style.setProperty("width", finalWidth + "px", "important");
+  iframe.style.setProperty("height", finalHeight + "px", "important");
+  // Centering remains the same (relative to #video-background)
+  iframe.style.setProperty("top", "50%", "important");
+  iframe.style.setProperty("left", "50%", "important");
+  iframe.style.setProperty("transform", "translate(-50%, -50%)", "important");
+  iframe.style.setProperty("position", "absolute", "important");
+}
+
+// Resize video on container resize using ResizeObserver
+const heroSection = document.getElementById("home");
+if (heroSection) {
+  const resizeObserver = new ResizeObserver(() => {
+    requestAnimationFrame(resizeVideoBackground);
+  });
+  // Continue observing heroSection because changes to it (like window resize) essentially change the video background size via CSS
+  // But strictly speaking, observing #video-background might be safer if only that changes.
+  // Given #video-background is a child of heroSection with relative dimensions, observing heroSection is fine.
+  resizeObserver.observe(heroSection);
+  // Initial call to ensure size is correct on load
+  resizeVideoBackground();
 }
 
 function onPlayerError(event) {

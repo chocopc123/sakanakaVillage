@@ -9,6 +9,7 @@
   --card-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
   --border-radius: 20px;
   --font-main: "M PLUS Rounded 1c", sans-serif;
+  --header-height: 80px;
 }
 
 * {
@@ -158,7 +159,7 @@ h3 {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  height: 80px; /* Set fixed height for navbar */
+  height: var(--header-height); /* Set fixed height for navbar */
 }
 
 .nav-brand {
@@ -348,10 +349,10 @@ h3 {
 /* Video Background */
 #video-background {
   position: absolute;
-  top: 0;
+  top: var(--header-height);
   left: 0;
   width: 100%;
-  height: 100%;
+  height: calc(100% - var(--header-height));
   z-index: -2;
   overflow: hidden;
 }
@@ -363,10 +364,8 @@ h3 {
   transform: translate(-50%, -50%);
   width: 100vw;
   height: 56.25vw; /* 16:9 Aspect Ratio */
-  min-height: 100vh;
-  min-height: 100svh;
-  min-width: 177.77vh; /* 16/9 * 100vh */
-  min-width: 177.77svh;
+  min-height: 100%;
+  min-width: 177.77vh; /* Fallback */
   pointer-events: none;
 }
 
@@ -1190,6 +1189,10 @@ address {
 
 /* スマホ横持ち（ランドスケープ）時のナビゲーション最適化 */
 @media (max-height: 500px) and (orientation: landscape) {
+  :root {
+    --header-height: 50px;
+  }
+
   .nav-container {
     height: 50px; /* 80px -> 50px */
   }
